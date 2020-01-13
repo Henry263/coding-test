@@ -1,0 +1,57 @@
+<div *ngIf="successflag" class="submit-success">
+    <div>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">check_circle_outline</mat-icon>
+    </div>
+    <div>You have successfully store the user entry.</div>
+</div>
+<div *ngIf="failflag" class="submit-fail">
+        <div>
+            <mat-icon aria-hidden="false" aria-label="Example home icon">highlight_off</mat-icon>
+        </div>
+        <div> There is an issue with the request please try again later.</div>
+    </div>
+<div class="userdata-page-heading">Add the user entry</div>
+<form [formGroup]="userentryform" (ngSubmit)="onSubmit()">
+    <div class="userdata-div">
+        <div>
+            <mat-form-field hintLabel="Max 30 characters">
+                <input matInput #input maxlength="30" placeholder="Enter Name" formControlName="name" required>
+                <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+                <mat-error *ngIf="textvalid.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field hintLabel="By default it will select yes">
+                   
+                <mat-select placeholder="Friends" (selectionChange)="friendsValue($event.value)">
+                    <!-- <mat-option value="Y">Yes</mat-option>
+                    <mat-option value="N">No</mat-option>
+                    <mat-option value="NA">Don't wamt to say</mat-option> -->
+                    <mat-option *ngFor="let selection of friendsObj" [value]="selection.code">
+                            {{ selection.name }}
+                        </mat-option>
+                </mat-select> 
+                <mat-hint align="end">{{input.value}}</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Age" type="number" class="input-number-style" formControlName="age"
+                    required>
+                <mat-error *ngIf="textvalid.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Weight" type="number" class="input-number-style" formControlName="weight"
+                    required>
+                <mat-error *ngIf="textvalid.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="submit-btn-div">
+        <button class="submit-button">Submit User Entry</button>
+        <div class="button-hint">(*Data will be store in browser storage.)</div>
+    </div>
+    
+</form>

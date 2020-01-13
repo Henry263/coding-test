@@ -1,0 +1,67 @@
+@import 'variables';
+@import 'mixins';
+
+.heading{
+    color: black;
+}
+
+input.input-number-style::-webkit-outer-spin-button,
+input.input-number-style::-webkit-inner-spin-button {
+  display: none;
+}
+
+.userdata-page-heading {
+    margin: 30px auto;
+    @include margin-style(30px, 30px, auto, auto);
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    @include page-heading-style(22px);
+}
+
+.userdata-div{
+    @include info-style;
+
+    .mat-form-field{
+        width: 100%;
+    }
+    div {
+        @include margin-style(20px, 20px, 0, 0);
+    }
+}
+
+.submit-btn-div{
+    @include info-style;
+    .submit-button{
+        @include margin-style(40px, 0, 0, 0);
+        width: 100%;
+        background: #ff7814e0;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .button-hint{
+        @include margin-style(0, 20px, 0, 0);
+        font-size: 15px;
+        color: #757575;
+        font-style: italic;
+    }
+}
+
+@mixin notification-style($color) {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background:$color;
+    color: white;
+    align-items: flex-start;
+    font-size: 18px;
+    margin: 10px 0;
+}
+.submit-success {
+    @include notification-style(#18b518);
+}
+.submit-fail{
+    @include notification-style(#e24e2a);
+}

@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Harshil",
+        "friends": true,
+        "age": "24",
+        "weight": "86",
+        "registrationdate":"Jan 11, 2020"
+    },
+    {
+        "name": "bmbmbm",
+        "friends": true,
+        "age": "29",
+        "weight": "55",
+        "registrationdate":"Jan 11, 2020"
+    },
+    {
+        "name": "shshsh",
+        "friends": true,
+        "age": "29",
+        "weight": "65",
+        "registrationdate":"Jan 11, 2020"
+    },
+    {
+        "name": "qoqoqo",
+        "friends": true,
+        "age": "32",
+        "weight": "45",
+        "registrationdate":"Jan 11, 2020"
+    },
+	{
+		"name": "jjj",
+        "friends": false,
+        "age": "15",
+        "weight": "39",
+        "registrationdate":"Jan 06, 2020"
+    },
+    {
+		"name": "jjj",
+        "friends": false,
+        "age": "10",
+        "weight": "30",
+        "registrationdate":"Jan 06, 2020"
+	},
+	{
+		"name": "kkk",
+        "friends": false,
+        "age": "36",
+        "weight": "54",
+        "registrationdate":"Jan 07, 2020"
+	},
+	{
+		"name": "lll",
+        "friends": true,
+        "age": "63",
+        "weight": "29",
+        "registrationdate":"Jan 02, 2020"
+	},
+	{
+		"name": "mmm",
+        "friends": true,
+        "age": "92",
+        "weight": "70",
+        "registrationdate":"Jan 10, 2020"
+	}
+]

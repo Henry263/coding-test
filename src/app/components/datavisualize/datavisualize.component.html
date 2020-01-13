@@ -1,0 +1,106 @@
+<div class="data-visual-component">
+        <div class="table-format-data">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Users Data
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Table Format
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+            
+                        <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource">
+            
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+            
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="friends">
+                                    <th mat-header-cell *matHeaderCellDef> Friends </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.friends}} </td>
+                                </ng-container>
+            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="age">
+                                    <th mat-header-cell *matHeaderCellDef> Age </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+                                </ng-container>
+            
+                                <ng-container matColumnDef="weight">
+                                    <th mat-header-cell *matHeaderCellDef> Weight </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                </ng-container>
+            
+                                <ng-container matColumnDef="registrationdate">
+                                    <th mat-header-cell *matHeaderCellDef> Entry </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.registrationdate}} </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+            
+                            <mat-paginator #paginator [length]="length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+                            </mat-paginator>
+                        </div>
+                    </mat-expansion-panel>
+            
+                </mat-accordion>
+            </div>
+            
+            <!-- <div class="submit-btn-div">
+                    <button class="submit-data" (click)=setBulkData()>Submit Bulk Data</button>
+                    <div class="button-hint">(*Data will be store in browser storage.)</div>
+                </div> -->
+                
+            <div class="data-pan">
+                <div>
+                    <span>Current Data From : </span>
+                    <span *ngIf="!storageIndicationText"> Browser Storage</span>
+                    <span *ngIf="storageIndicationText"> Json File </span>
+                    
+                </div>
+
+                <section class="radio-section">
+                    <label class="example-margin">Select Data Render from:</label>
+                    <mat-radio-group [(ngModel)]="datamode" class="radio-btn-style">
+                            <mat-radio-button class="example-margin" value="true" 
+                            [matTooltip]="isTooltipEnable ? 'Option available when browser storage will have data.!' : ''" 
+                            [disabled]="isRadioDisabled" 
+                            (change)="onChangeRadio($event)">Broser Storage</mat-radio-button>
+                            <mat-radio-button class="example-margin" value="false" (change)="onChangeRadio($event)">Json File</mat-radio-button>
+                    </mat-radio-group>
+                </section>
+            </div>
+            <div class="warning-info" *ngIf="isRadioDisabled">(*Browserstorge is empty so current data showing from JSON file. Add the data to browsers torage from user entry tab and revisit this tab.)</div>
+            
+            <div class="piechart-div">
+            
+                <div class="graph-style">
+                    <div class="graph-title">Generation Based on Age</div>
+                    <div class="info-div" *ngFor="let gdata of generationdata">
+                        <span class="lbl-heading">{{gdata.label}}</span>
+                        <span class="lbl-seperator"> : </span>
+                        <span class="lbl-bar"> {{gdata.bar}}</span>
+                    </div>
+                    <app-piechart [data]="generationdata" [title]="generationgraphtitle">
+                    </app-piechart>
+                </div>
+                <div class="graph-style">
+                    <div class="graph-title">Health Based on Weight</div>
+                    <div class="info-div" *ngFor="let hdata of weightdata">
+                        <span class="lbl-heading">{{hdata.label}}</span>
+                        <span class="lbl-seperator"> : </span>
+                        <span class="lbl-bar">{{hdata.bar}}</span>
+                    </div>
+                    <app-piechart [data]="weightdata" [title]="healthgraphtitle">
+                    </app-piechart>
+                </div>
+            </div>
+            
+</div>

@@ -1,0 +1,84 @@
+@import 'variables';
+@import 'mixins';
+
+
+@mixin margin-style ($mt: null, $mb: null, $ml: null, $mr: null) {
+    margin: $mt $mr $mb $ml;
+}
+@mixin info-style {
+    // margin: 0 auto;
+    @include margin-style(20px, 0, auto, auto);
+    max-width: 600px;
+}
+
+@mixin header-style {
+    color: rgba(0,0,0,.54);
+    background: rgba(0,0,0,.03);
+} 
+
+.page-heading {
+    @include margin-style(15px, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img.swlogo{
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+    }
+
+    .page-title{
+        @include margin-style(0, 0, 10px, 0);
+        font-size: 20px;
+        @include default-font-color;
+    }
+}
+.page-heading {
+    display: flex;
+    justify-content: center;
+}
+
+.info-tab-style{
+    @include info-style();
+}
+
+.autho-info{
+    @include info-style();
+}
+
+.title-style{
+    display: flex;
+}
+.mat-card-header{
+   justify-content: center;
+   @include header-style();
+}
+.mat-card-content{
+    display: flex;
+    justify-content: center;
+ }
+ mat-card-content{
+     
+    div {
+        font-size: 20px;
+        @include default-font-color;
+    }
+    p {
+        font-size: 20px;
+        @include default-font-color;
+        @include margin-style(10px, 0, 0, 0);
+    }
+ }
+
+ .divider-margin{
+    @include margin-style(20px, 20px, 0, 0);
+ }
+
+.mat-card-title {
+   @include margin-style(12px, 12px, 0, 0);
+}
+.header-nav-typography{
+    @include margin-style(0, 0, 10px, 0);
+}
+

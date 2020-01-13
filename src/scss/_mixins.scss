@@ -1,0 +1,42 @@
+@mixin center-content-both() 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin center-content-x()
+{
+    display: flex;
+    justify-content: center;
+}
+
+@mixin center-content-y()
+{
+    display: flex;
+    align-items: center;
+}
+
+@mixin default-font-color {
+    color: #3a3a3ad9;   
+}
+
+@mixin margin-style ($mt: null, $mb: null, $ml: null, $mr: null) {
+    margin: $mt $mr $mb $ml;
+}
+@mixin info-style {
+    // margin: 0 auto;
+    @include margin-style(20px, 0, auto, auto);
+    max-width: 600px;
+}
+
+@mixin header-style {
+    color: rgba(0,0,0,.54);
+    background: rgba(0,0,0,.03);
+} 
+
+@mixin page-heading-style ($fsize) {
+    @include header-style ;
+    padding: 20px;
+    font-size: $fsize !important;
+}
