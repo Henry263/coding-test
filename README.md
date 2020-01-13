@@ -15,6 +15,12 @@ npm install
 
 ## Where to see running app?
 
+### How to run the application?
+```bash
+ng serve
+```
+
+### Open browser and paste the following url.
 ```bash
 http://localhost:4200/
 ```
