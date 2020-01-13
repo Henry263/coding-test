@@ -24,7 +24,6 @@ http://localhost:4200/
 ### Home Page 
   - This page contains only information.
 
-![Home page](https://github.com/Henry263/coding-test/blob/master/src/assets/images/homepage.jpg)
 ![Home page](src/assets/images/homepage.jpg)
 
 
